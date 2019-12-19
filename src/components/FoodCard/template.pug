@@ -1,0 +1,42 @@
+.food-card(
+  onMouseEnter=handleHover(true) 
+  onMouseLeave=handleHover(false)
+  style='{{cursor: type==="disabled" ? "auto" : "pointer"}}'
+  onClick=(onClick)
+)
+  .food-card__background
+    Background(type=type hover=hover)
+  .food-card__header 
+    if hover && type === 'active'
+      span.food-card__cancellation Котэ не одобряет?
+    else 
+      | data.slogan
+  .food-card__title 
+    .food-card__name {data.name}
+    .food-card__desc {data.taste}
+  ul.food-card__feature-list.list 
+    each item, index in data.features
+      if item.count
+        li.list__item(key=index)
+          span.list__hightlight {item.count}
+          span {} {item.unit}
+      else 
+        li.list__item(key=index)
+          span {item.text}
+  .food-card__circle(className=circleClass) 
+    div.food-card__weight {data.weight && data.weight.count}
+    div.food-card__unit  {data.weight && data.weight.unit}
+
+  if data.img 
+    img.food-card__img(src=data.img)
+.food-card__footer(className=type==='disabled' ? 'food-card__footer_disabled' : '')
+  if type === 'active'
+    span {data.desc}
+  else if type === 'disabled'
+    span Печалька, с {data.taste} закончился.
+  else 
+    span
+      span Чего сидишь? Порадуй котэ, 
+      span.food-card__buy
+        a.food-card__link(href='#') купи
+        span .

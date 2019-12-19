@@ -1,0 +1,99 @@
+.food-card {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  padding: 21px 48px;
+  user-select: none;
+  z-index: 1;
+
+  &__background {
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    z-index: -1;
+  }
+
+  &__header {
+    color: #666666;
+    font-style: 16px;
+  }
+  &__cancellation {
+    color: #e62e7a;
+  }
+  &__title {
+    color: #000000;
+    font-weight: bold;
+  }
+  &__name {
+    font-size: 48px;
+  }
+  &__desc {
+    font-size: 24px;
+  }
+
+  &__circle {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    height: 80px;
+    width: 80px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #1698d9;
+    border-radius: 50%;
+    z-index: 2;
+    color: #ffffff;
+    text-align: center;
+
+    &_hover {
+      background-color: #2ea8e6;
+    }
+
+    &_active {
+      background-color: #d91667;
+      &_hover {
+        background-color: #e52e7a;
+      }
+    }
+    &_disabled {
+      background-color: #b3b3b3;
+    }
+  }
+
+  &__weight {
+    font-size: 42px;
+    line-height: 36px;
+  }
+  &__unit {
+    font-size: 21px;
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    z-index: 1;
+  }
+
+  &__footer {
+    margin-top: 14px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 13px;
+    &_disabled {
+      color: #ffff66;
+    }
+  } 
+  &__link {
+    color: #1698d9;
+    font-weight: 700;
+    text-decoration: underline dashed;
+  }
+  &__buy {
+    color: #1698d9;
+    font-weight: 700;
+  }
+}
+

@@ -1,0 +1,11 @@
+.food-list
+  each item, index in data
+    .food-list-item(
+      key=index, 
+    )
+      FoodCard(
+        data=item, 
+        selected=!!selected.includes(index), 
+        disabled=index===2, 
+        onClick=( () => handleClick(index) )
+      )

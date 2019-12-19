@@ -1,0 +1,12 @@
+.list {
+  padding-left: 0;
+
+  &__item {
+    list-style: none;
+    color: #666666;
+    font-size: 14px;
+  }
+  &__hightlight {
+    font-weight: bold;
+  }
+}
