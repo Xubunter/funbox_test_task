@@ -4,14 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = (webpackEnv) => {
   const isEnvProduction = webpackEnv === 'production';
-
+  
   return {
     entry: [
       'react-hot-loader/patch',
       './src/index.js'
     ],
     output: {
-      publicPath: '/',
+      publicPath: isEnvProduction ? '/funbox_test_task/' : '/',
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js'
     },
@@ -119,8 +119,7 @@ const config = (webpackEnv) => {
 };
 
 module.exports = (env, argv) => {
-
-  const cfg = config(env)
+  const cfg = config(argv.mode)
   if (argv.hot) {
     // Cannot use 'contenthash' when hot reloading is enabled.
     cfg.output.filename = '[name].[hash].js';
